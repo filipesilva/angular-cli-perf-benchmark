@@ -25,19 +25,36 @@ anchor_10: &new_project
     - *setup
     - run: ./benchmark-project.sh https://github.com/filipesilva/cli-eight-project 02cfbec npm
 
+anchor_11: &super_productivity
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: ./benchmark-project.sh https://github.com/johannesjo/super-productivity 53acfe0 yarn
+
 version: 2
 jobs:
-  new-project-node-10:
+  new_project-node_10:
     <<: *node_10
     <<: *new_project
 
-  new-project-node-12:
+  new_project-node_12:
     <<: *node_12
     <<: *new_project
+
+  super_productivity-node_10:
+    <<: *node_10
+    <<: *super_productivity
+
+  super_productivity-node_12:
+    <<: *node_12
+    <<: *super_productivity
 
 workflows:
   version: 2
   default_workflow:
     jobs:
-      - new-project-node-10
-      - new-project-node-12
+      - new_project-node_10
+      - new_project-node_12
+      - super_productivity-node_10
+      - super_productivity-node_12

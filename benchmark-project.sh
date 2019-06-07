@@ -16,6 +16,7 @@ silent() {
   } &> /dev/null
 }
 
+set -u -e -o pipefail
 # set -o xtrace
 
 echo -e "# Benchmarking $git_url at $git_sha using $package_manager"
@@ -31,7 +32,8 @@ silent "$install_cli_8"
 $benchmark_command
 
 echo -e "\n# CLI version 8 without differential loading\n"
-silent "sed -i s/es2015/es5/g tsconfig.json"
+# Didn't set this one as silent because it's already silend and double escaping is hell.
+sed -i s/\"target\"\:\ \"es2015\"/\"target\"\:\ \"es5\"/g tsconfig.json
 $benchmark_command
 
 echo -e "\n# CLI version 7\n"
