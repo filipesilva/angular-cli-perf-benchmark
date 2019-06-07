@@ -55,7 +55,9 @@ These results should be updated when either the setup or the project SHA change.
 
 ### cli-eight-project
 
-- Node 10.16.0, CLI version 8 with differential loading
+<details><summary>Node 10.16.0</summary>
+
+- CLI version 8 with differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build --prod (at /home/circleci/project/project)
@@ -68,7 +70,7 @@ These results should be updated when either the setup or the project SHA change.
 [benchmark]   Average Memory usage: 510.76 MB (674.68, 463.29, 472.84, 487.71, 455.30)
 [benchmark]   Peak Memory usage: 1030.30 MB (1088.06, 996.43, 1012.20, 1055.23, 999.57)
 ```
-- Node 10.16.0, CLI version 8 without differential loading
+- CLI version 8 without differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build --prod (at /home/circleci/project/project)
@@ -81,7 +83,7 @@ These results should be updated when either the setup or the project SHA change.
 [benchmark]   Average Memory usage: 368.96 MB (426.35, 353.38, 365.57, 354.46, 345.05)
 [benchmark]   Peak Memory usage: 906.37 MB (931.14, 880.00, 937.02, 893.53, 890.17)
 ```
-- Node 10.16.0, CLI version 7
+- CLI version 7
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build --prod (at /home/circleci/project/project)
@@ -94,8 +96,11 @@ These results should be updated when either the setup or the project SHA change.
 [benchmark]   Average Memory usage: 361.75 MB (495.78, 334.88, 327.84, 324.83, 325.43)
 [benchmark]   Peak Memory usage: 839.92 MB (909.26, 824.16, 806.54, 821.72, 837.93)
 ```
+</details>
 
-- Node 12.4.0, CLI version 8 with differential loading
+<details><summary>Node 12.4.0</summary>
+
+- CLI version 8 with differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build --prod (at /home/circleci/project/project)
@@ -108,7 +113,7 @@ These results should be updated when either the setup or the project SHA change.
 [benchmark]   Average Memory usage: 590.44 MB (744.08, 551.52, 559.77, 531.72, 565.12)
 [benchmark]   Peak Memory usage: 1139.92 MB (1191.49, 1154.62, 1196.79, 986.98, 1169.75)
 ```
-- Node 12.4.0, CLI version 8 without differential loading
+- CLI version 8 without differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build --prod (at /home/circleci/project/project)
@@ -121,7 +126,7 @@ These results should be updated when either the setup or the project SHA change.
 [benchmark]   Average Memory usage: 391.04 MB (461.93, 383.10, 361.04, 376.34, 372.79)
 [benchmark]   Peak Memory usage: 946.90 MB (933.73, 947.05, 942.14, 989.29, 922.26)
 ```
-- Node 12.4.0, CLI version 7
+- CLI version 7
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build --prod (at /home/circleci/project/project)
@@ -134,3 +139,4 @@ These results should be updated when either the setup or the project SHA change.
 [benchmark]   Average Memory usage: 392.06 MB (576.98, 348.03, 345.16, 341.52, 348.61)
 [benchmark]   Peak Memory usage: 908.22 MB (1063.15, 879.80, 860.92, 871.99, 865.27)
 ```
+</details>
