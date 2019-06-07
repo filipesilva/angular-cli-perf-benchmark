@@ -1,7 +1,8 @@
 git_url=$1
 git_sha=$2
 package_manager=$3
-benchmark_command="benchmark -- ng build --prod"
+command="${4:-ng build --prod}"
+benchmark_command="benchmark -- $command"
 if [[ "$package_manager" == "npm" ]]; then
     install_package_command="npm install -D"
 fi
@@ -19,7 +20,7 @@ silent() {
 set -u -e -o pipefail
 # set -o xtrace
 
-echo -e "# Benchmarking $git_url at $git_sha using $package_manager"
+echo -e "# Benchmarking $git_url at $git_sha using $package_manager, running \"$command\""
 
 silent "rm -rf project"
 silent "git clone $git_url project"

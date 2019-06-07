@@ -35,6 +35,14 @@ anchor_11: &super_productivity
     - *setup
     - run: ./benchmark-project.sh https://github.com/filipesilva/super-productivity 1e3b6652 yarn
 
+# From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
+anchor_12: &awesome_angular_workshop
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: ./benchmark-project.sh https://github.com/johnpapa/awesome-angular-workshop b7adca7 npm "ng build 5-ngrx-end --prod"
+
 version: 2
 jobs:
   new_project-node_10:
@@ -53,6 +61,14 @@ jobs:
     <<: *node_12
     <<: *super_productivity
 
+  awesome_angular_workshop-node_10:
+    <<: *node_10
+    <<: *awesome_angular_workshop
+
+  awesome_angular_workshop-node_12:
+    <<: *node_12
+    <<: *awesome_angular_workshop
+
 workflows:
   version: 2
   default_workflow:
@@ -61,3 +77,5 @@ workflows:
       - new_project-node_12
       - super_productivity-node_10
       - super_productivity-node_12
+      - awesome_angular_workshop-node_10
+      - awesome_angular_workshop-node_10
