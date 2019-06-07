@@ -79,8 +79,8 @@ workflows:
   version: 2
   default_workflow:
     jobs:
-      - new_project-node_10
-      - new_project-node_12
+      # - new_project-node_10
+      # - new_project-node_12
       - super_productivity-node_10
       - super_productivity-node_12
       - awesome_angular_workshop-node_10
