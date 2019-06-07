@@ -4,7 +4,7 @@ This repository contains performance benchmarks for a few open source Angular CL
 
 It is used to track the performance of the Angular CLI build system across versions to find regressions.
 
-The current benchmarks can be seen on CircleCI: https://circleci.com/gh/filipesilva/workflows/angular-cli-perf-benchmark
+The current benchmarks can be seen on CircleCI: [![CircleCI](https://circleci.com/gh/filipesilva/angular-cli-perf-benchmark.svg?style=svg)](https://circleci.com/gh/filipesilva/angular-cli-perf-benchmark)
 
 
 ## Benchmark package
