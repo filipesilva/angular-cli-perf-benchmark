@@ -48,6 +48,16 @@ anchor_12: &awesome_angular_workshop
     - run: 
         command: ./benchmark-project.sh https://github.com/johnpapa/awesome-angular-workshop b7adca7 npm "ng build 5-ngrx-end --prod"
         no_output_timeout: 90m
+        
+# From https://github.com/vmware/clarity
+anchor_13: &vmware_clarity
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: 
+        command: ./benchmark-project.sh https://github.com/vmware/clarity a3d607e npm "ng build website --prod"
+        no_output_timeout: 90m
 
 version: 2
 jobs:
@@ -79,6 +89,14 @@ jobs:
   awesome_angular_workshop-node_12:
     <<: *node_12
     <<: *awesome_angular_workshop
+    
+  vmware_clarity-node_10:
+    <<: *node_10
+    <<: *vmware_clarity
+
+  vmware_clarity-node_12:
+    <<: *node_12
+    <<: *vmware_clarity
 
 workflows:
   version: 2
@@ -91,3 +109,5 @@ workflows:
       # - super_productivity-node_12
       # - awesome_angular_workshop-node_10
       # - awesome_angular_workshop-node_12
+      # - vmware_clarity-node_10
+      # - vmware_clarity-node_12
