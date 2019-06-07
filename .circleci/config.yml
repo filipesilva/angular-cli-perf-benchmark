@@ -18,6 +18,8 @@ anchor_4: &setup
     command: ./global-setup.sh
 
 # Projects
+
+# New project created by `ng new`
 anchor_10: &new_project
   <<: *environment
   steps:
@@ -25,12 +27,13 @@ anchor_10: &new_project
     - *setup
     - run: ./benchmark-project.sh https://github.com/filipesilva/cli-eight-project 02cfbec npm
 
+# From https://github.com/johannesjo/super-productivity    
 anchor_11: &super_productivity
   <<: *environment
   steps:
     - checkout
     - *setup
-    - run: ./benchmark-project.sh https://github.com/johannesjo/super-productivity 53acfe0 yarn
+    - run: ./benchmark-project.sh https://github.com/filipesilva/super-productivity 1e3b6652 yarn
 
 version: 2
 jobs:
