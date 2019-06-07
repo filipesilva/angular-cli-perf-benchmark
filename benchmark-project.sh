@@ -17,11 +17,15 @@ install_cli_8="$install_package_command @angular/cli@8.0.2 @angular-devkit/build
 DEBUG=false
 
 if $DEBUG; then
+    # Show all commands ran.
     set -o xtrace
+    # Don't do benchmark, just do the command instead.
+    benchmark_command="$command"
 fi
 
 silent() {
   if $DEBUG; then
+    # Don't silence command output.
     $1
   else
     { 
