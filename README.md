@@ -9,7 +9,9 @@ The current benchmarks can be seen on CircleCI: [![CircleCI](https://circleci.co
 
 ## Benchmark package
 
-We have a private benchmarking package for the CLI https://github.com/angular/angular-cli/tree/master/packages/angular_devkit/benchmark.
+We have a private [benchmarking package](https://github.com/angular/angular-cli/tree/master/packages/angular_devkit/benchmark) for the CLI repository. 
+
+A build is included here as `angular-devkit-benchmark-<some-version>.tgz` but you can also build it from source.
 
 To install it, clone the CLI repo, then run follow these commands:
 ```
