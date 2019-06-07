@@ -49,13 +49,17 @@ This gives us the base benchmark suite containing:
 
 This suite is run through node 10 and node 12.
 
+
 ## Results
 
 After gathering new benchmark information, it can be recorded here and commented out from the CircleCI job list. 
 
 These results should be updated when either the setup or the project SHA change.
 
+
 ### cli-eight-project
+
+New project created by `ng new`.
 
 <details><summary>Node 12.4.0</summary>
 
@@ -143,7 +147,10 @@ These results should be updated when either the setup or the project SHA change.
 ```
 </details>
 
+
 ### super-productivity
+
+From https://github.com/johannesjo/super-productivity  
 
 <details><summary>Node 12.4.0</summary>
 
@@ -231,7 +238,10 @@ These results should be updated when either the setup or the project SHA change.
 ```
 </details>
 
+
 ### awesome-angular-workshop
+
+From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
 
 <details><summary>Node 12.4.0</summary>
 
