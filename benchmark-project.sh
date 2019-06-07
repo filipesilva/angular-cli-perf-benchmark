@@ -1,3 +1,4 @@
+set -u -e -o pipefail
 git_url=$1
 git_sha=$2
 package_manager=$3
@@ -11,14 +12,23 @@ if [[ "$package_manager" == "yarn" ]]; then
 fi
 install_cli_7="$install_package_command @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.8"
 install_cli_8="$install_package_command @angular/cli@8.0.2 @angular-devkit/build-angular@0.800.2"
-silent() {
-  { 
-    $1
-  } &> /dev/null
-}
 
-set -u -e -o pipefail
-# set -o xtrace
+# Set to true to debug.
+DEBUG=false
+
+if $DEBUG; then
+    set -o xtrace
+fi
+
+silent() {
+  if $DEBUG; then
+    $1
+  else
+    { 
+      $1
+    } &> /dev/null  
+  fi
+}
 
 echo -e "# Benchmarking $git_url at $git_sha using $package_manager, running \"$command\""
 

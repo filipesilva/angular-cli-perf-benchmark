@@ -33,7 +33,7 @@ anchor_11: &super_productivity
   steps:
     - checkout
     - *setup
-    - run: ./benchmark-project.sh https://github.com/filipesilva/super-productivity 1e3b6652 yarn
+    - run: ./benchmark-project.sh https://github.com/filipesilva/super-productivity e6501816 yarn
 
 # From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
 anchor_12: &awesome_angular_workshop
@@ -78,4 +78,4 @@ workflows:
       - super_productivity-node_10
       - super_productivity-node_12
       - awesome_angular_workshop-node_10
-      - awesome_angular_workshop-node_10
+      - awesome_angular_workshop-node_12
