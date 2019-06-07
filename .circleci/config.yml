@@ -25,7 +25,9 @@ anchor_10: &new_project
   steps:
     - checkout
     - *setup
-    - run: ./benchmark-project.sh https://github.com/filipesilva/cli-eight-project 02cfbec npm
+    - run: 
+        command: ./benchmark-project.sh https://github.com/filipesilva/cli-eight-project 02cfbec npm
+        no_output_timeout: 90m
 
 # From https://github.com/johannesjo/super-productivity    
 anchor_11: &super_productivity
@@ -33,7 +35,9 @@ anchor_11: &super_productivity
   steps:
     - checkout
     - *setup
-    - run: ./benchmark-project.sh https://github.com/filipesilva/super-productivity e6501816 yarn
+    - run: 
+        command: ./benchmark-project.sh https://github.com/filipesilva/super-productivity e6501816 yarn
+        no_output_timeout: 90m
 
 # From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
 anchor_12: &awesome_angular_workshop
@@ -41,7 +45,9 @@ anchor_12: &awesome_angular_workshop
   steps:
     - checkout
     - *setup
-    - run: ./benchmark-project.sh https://github.com/johnpapa/awesome-angular-workshop b7adca7 npm "ng build 5-ngrx-end --prod"
+    - run: 
+        command: ./benchmark-project.sh https://github.com/johnpapa/awesome-angular-workshop b7adca7 npm "ng build 5-ngrx-end --prod"
+        no_output_timeout: 90m
 
 version: 2
 jobs:
