@@ -1,0 +1,43 @@
+# General setup
+anchor_1: &node_10
+  docker:
+    - image: circleci/node:10
+
+anchor_2: &node_12
+  docker:
+    - image: circleci/node:12
+
+anchor_3: &environment
+  environment:
+    BASH_ENV: ~/.profile
+    NPM_CONFIG_PREFIX: ~/.npm-global
+
+anchor_4: &setup
+  run:
+    name: Setup environment
+    command: ./global-setup.sh
+
+# Projects
+anchor_10: &new_project
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: ./benchmark-project.sh https://github.com/filipesilva/cli-eight-project 02cfbec npm
+
+version: 2
+jobs:
+  new-project-node-10:
+    <<: *node_10
+    <<: *new_project
+
+  new-project-node-12:
+    <<: *node_12
+    <<: *new_project
+
+workflows:
+  version: 2
+  default_workflow:
+    jobs:
+      - new-project-node-10
+      - new-project-node-12
