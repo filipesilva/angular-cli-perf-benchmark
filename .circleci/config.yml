@@ -51,6 +51,11 @@ anchor_12: &awesome_angular_workshop
 
 version: 2
 jobs:
+  noop:
+    <<: *node_10
+    steps:
+      - run: echo dummy job, just here so circleci is green when no other job is running.
+
   new_project-node_10:
     <<: *node_10
     <<: *new_project
@@ -79,6 +84,7 @@ workflows:
   version: 2
   default_workflow:
     jobs:
+      - noop
       # - new_project-node_10
       # - new_project-node_12
       # - super_productivity-node_10
