@@ -57,6 +57,7 @@ After gathering new benchmark information, it can be recorded here and commented
 These results should be updated when either the setup or the project SHA change.
 
 Projects yet to add:
+- https://github.com/angular/angular/tree/master/aio
 - https://github.com/SAP/cloud-commerce-spartacus-storefront
 - https://github.com/aviabird/angularspree
 - https://github.com/vmware/clarity
