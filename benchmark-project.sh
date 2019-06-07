@@ -10,7 +10,7 @@ fi
 if [[ "$package_manager" == "yarn" ]]; then
     install_package_command="yarn add -D"
 fi
-install_cli_7="$install_package_command @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.8"
+install_cli_7="$install_package_command @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.9"
 install_cli_8="$install_package_command @angular/cli@8.0.2 @angular-devkit/build-angular@0.800.2"
 
 # Set to true to debug.

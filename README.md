@@ -38,7 +38,7 @@ The "CLI version 8 with differential loading" is obtained by installing `@angula
 
 Replacing `target` in `./tsconfig.json` from `es2015` to `es5` makes the "CLI version 8 without differential loading" variant.
 
-The "CLI version 7" variant is obtained by by installing `@angular-devkit/build-angular@0.13.8` and `@angular/cli@7.3.9`.
+The "CLI version 7" variant is obtained by by installing `@angular-devkit/build-angular@0.13.9` and `@angular/cli@7.3.9`.
 
 This gives us the base benchmark suite containing:
 - CLI version 8 with differential loading
