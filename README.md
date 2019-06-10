@@ -57,7 +57,6 @@ After gathering new benchmark information, it can be recorded here and commented
 These results should be updated when either the setup or the project SHA change.
 
 Projects yet to add:
-- https://github.com/SAP/cloud-commerce-spartacus-storefront
 - https://github.com/vmware/clarity
 - https://github.com/aviabird/angularspree (not yet updated to 8, and requires a lot of work to update)
 
@@ -425,3 +424,93 @@ From https://github.com/angular/angular/tree/master/aio.
 ```
 </details>
 
+
+### spartacus
+
+From https://github.com/SAP/cloud-commerce-spartacus-storefront.
+
+<details><summary>Node 12.4.0</summary>
+
+- CLI version 8 with differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 111456.00 ms (154650.00, 109050.00, 100750.00, 96180.00, 96650.00)
+[benchmark]   Average Process usage: 1.29 process(es) (2.44, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.80 process(es) (5.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 153.09 % (162.59, 147.32, 150.57, 153.36, 151.63)
+[benchmark]   Peak CPU usage: 552.89 % (677.78, 522.22, 490.00, 544.44, 530.00)
+[benchmark]   Average Memory usage: 1233.30 MB (1405.09, 1153.82, 1180.65, 1163.84, 1263.11)
+[benchmark]   Peak Memory usage: 2083.64 MB (2326.98, 1727.42, 2167.06, 2136.04, 2060.71)
+```
+- CLI version 8 without differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 98380.00 ms (102170.00, 103090.00, 91540.00, 93120.00, 101980.00)
+[benchmark]   Average Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 151.47 % (149.79, 149.61, 155.14, 153.38, 149.41)
+[benchmark]   Peak CPU usage: 502.00 % (500.00, 500.00, 500.00, 510.00, 500.00)
+[benchmark]   Average Memory usage: 1182.45 MB (1131.15, 1205.28, 1192.45, 1247.90, 1135.47)
+[benchmark]   Peak Memory usage: 1957.15 MB (1722.85, 2130.38, 2133.10, 2055.44, 1743.97)
+```
+- CLI version 7
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 58398.00 ms (76450.00, 54400.00, 53380.00, 54280.00, 53480.00)
+[benchmark]   Average Process usage: 1.27 process(es) (2.35, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.80 process(es) (5.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 156.36 % (161.60, 154.01, 154.73, 154.99, 156.47)
+[benchmark]   Peak CPU usage: 515.13 % (518.18, 536.36, 500.00, 511.11, 510.00)
+[benchmark]   Average Memory usage: 961.34 MB (1191.46, 940.76, 885.88, 902.55, 886.03)
+[benchmark]   Peak Memory usage: 1657.43 MB (2011.95, 1645.44, 1520.72, 1592.91, 1516.15)
+```
+</details>
+
+<details><summary>Node 10.16.0</summary>
+
+- CLI version 8 with differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 111002.00 ms (170850.00, 106970.00, 86510.00, 106370.00, 84310.00)
+[benchmark]   Average Process usage: 1.29 process(es) (2.44, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.80 process(es) (5.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 155.95 % (153.03, 152.18, 162.64, 150.85, 161.07)
+[benchmark]   Peak CPU usage: 536.22 % (640.00, 510.00, 520.00, 511.11, 500.00)
+[benchmark]   Average Memory usage: 1013.15 MB (1275.80, 924.72, 957.92, 983.69, 923.61)
+[benchmark]   Peak Memory usage: 1855.15 MB (2291.60, 1706.21, 1791.59, 1724.58, 1761.78)
+```
+- CLI version 8 without differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 78998.00 ms (76830.00, 79500.00, 79220.00, 77420.00, 82020.00)
+[benchmark]   Average Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 156.11 % (155.55, 156.26, 155.25, 156.26, 157.24)
+[benchmark]   Peak CPU usage: 510.44 % (500.00, 510.00, 510.00, 510.00, 522.22)
+[benchmark]   Average Memory usage: 953.50 MB (940.89, 951.00, 946.14, 950.71, 978.76)
+[benchmark]   Peak Memory usage: 1711.09 MB (1709.29, 1723.58, 1737.01, 1671.56, 1714.02)
+```
+- CLI version 7
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 52760.00 ms (68310.00, 46380.00, 49680.00, 50970.00, 48460.00)
+[benchmark]   Average Process usage: 1.25 process(es) (2.25, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.80 process(es) (5.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 158.57 % (160.29, 159.66, 157.86, 156.07, 158.99)
+[benchmark]   Peak CPU usage: 508.00 % (500.00, 510.00, 520.00, 510.00, 500.00)
+[benchmark]   Average Memory usage: 728.57 MB (989.48, 665.76, 663.48, 665.37, 658.76)
+[benchmark]   Peak Memory usage: 1331.97 MB (1835.56, 1179.63, 1197.85, 1219.21, 1227.60)
+```
+</details>

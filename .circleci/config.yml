@@ -59,6 +59,16 @@ anchor_13: &aio
         command: ./benchmark-project.sh https://github.com/filipesilva/angular c6d7b7ebc yarn "ng build --configuration=stable" aio
         no_output_timeout: 90m
 
+# From https://github.com/SAP/cloud-commerce-spartacus-storefront
+anchor_14: &spartacus
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: 
+        command: ./benchmark-project.sh https://github.com/filipesilva/cloud-commerce-spartacus-storefront b55866d91 yarn "ng build storefrontapp --prod"
+        no_output_timeout: 90m        
+
 version: 2
 jobs:
   noop:
@@ -97,6 +107,14 @@ jobs:
   aio-node_12:
     <<: *node_12
     <<: *aio
+    
+  spartacus-node_10:
+    <<: *node_10
+    <<: *spartacus
+
+  spartacus-node_12:
+    <<: *node_12
+    <<: *spartacus
 
 workflows:
   version: 2
@@ -111,3 +129,5 @@ workflows:
       # - awesome_angular_workshop-node_12
       # - aio-node_10
       # - aio-node_12
+      # - spartacus-node_10
+      # - spartacus-node_12
