@@ -46,7 +46,7 @@ anchor_12: &awesome_angular_workshop
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/johnpapa/awesome-angular-workshop b7adca7 npm "ng build 5-ngrx-end --prod"
+        command: ./benchmark-project.sh https://github.com/filipesilva/awesome-angular-workshop 9076a3d npm "ng build 5-ngrx-end --prod"
         no_output_timeout: 90m
 
 # From https://github.com/angular/angular/tree/master/aio
