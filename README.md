@@ -57,7 +57,6 @@ After gathering new benchmark information, it can be recorded here and commented
 These results should be updated when either the setup or the project SHA change.
 
 Projects yet to add:
-- https://github.com/angular/angular/tree/master/aio
 - https://github.com/SAP/cloud-commerce-spartacus-storefront
 - https://github.com/aviabird/angularspree
 - https://github.com/vmware/clarity
@@ -334,3 +333,95 @@ From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
 [benchmark]   Peak Memory usage: 1524.36 MB (1908.33, 1446.94, 1398.45, 1429.33, 1438.78)
 ```
 </details>
+
+
+### aio
+
+From https://github.com/angular/angular/tree/master/aio.
+
+<details><summary>Node 12.4.0</summary>
+
+- CLI version 8 with differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build --configuration=stable (at /home/circleci/project/project/aio)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 67188.00 ms (93540.00, 61410.00, 60610.00, 61700.00, 58680.00)
+[benchmark]   Average Process usage: 2.00 process(es) (6.01, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 4.00 process(es) (16.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 170.78 % (192.22, 165.58, 165.72, 164.31, 166.09)
+[benchmark]   Peak CPU usage: 576.00 % (920.00, 490.00, 510.00, 480.00, 480.00)
+[benchmark]   Average Memory usage: 1013.02 MB (1329.66, 920.73, 955.32, 899.21, 960.18)
+[benchmark]   Peak Memory usage: 1814.88 MB (2898.75, 1484.76, 1605.84, 1493.54, 1591.52)
+```
+- CLI version 8 without differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build --configuration=stable (at /home/circleci/project/project/aio)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 37668.00 ms (46180.00, 33160.00, 31960.00, 37570.00, 39470.00)
+[benchmark]   Average Process usage: 1.53 process(es) (3.64, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 2.60 process(es) (9.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 172.69 % (190.33, 169.14, 169.38, 167.91, 166.68)
+[benchmark]   Peak CPU usage: 542.00 % (800.00, 470.00, 500.00, 460.00, 480.00)
+[benchmark]   Average Memory usage: 744.41 MB (921.50, 699.36, 685.00, 701.79, 714.41)
+[benchmark]   Peak Memory usage: 1551.55 MB (1892.86, 1464.95, 1462.58, 1457.82, 1479.54)
+```
+- CLI version 7
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build --configuration=stable (at /home/circleci/project/project/aio)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 30662.00 ms (41600.00, 26050.00, 27450.00, 30360.00, 27850.00)
+[benchmark]   Average Process usage: 1.93 process(es) (5.65, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 3.60 process(es) (14.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 165.27 % (172.08, 164.32, 164.24, 162.00, 163.69)
+[benchmark]   Peak CPU usage: 463.11 % (470.00, 470.00, 455.56, 480.00, 440.00)
+[benchmark]   Average Memory usage: 749.66 MB (1134.57, 668.51, 635.41, 674.54, 635.26)
+[benchmark]   Peak Memory usage: 1559.87 MB (2243.94, 1388.45, 1331.79, 1472.00, 1363.19)
+```
+</details>
+
+<details><summary>Node 10.16.0</summary>
+
+- CLI version 8 with differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build --configuration=stable (at /home/circleci/project/project/aio)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 75902.00 ms (98400.00, 67710.00, 74540.00, 75450.00, 63410.00)
+[benchmark]   Average Process usage: 2.07 process(es) (6.34, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 4.00 process(es) (16.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 174.35 % (195.46, 171.01, 166.88, 166.48, 171.93)
+[benchmark]   Peak CPU usage: 598.00 % (960.00, 510.00, 520.00, 490.00, 510.00)
+[benchmark]   Average Memory usage: 879.77 MB (1232.57, 789.49, 808.39, 782.46, 785.94)
+[benchmark]   Peak Memory usage: 1646.09 MB (2323.54, 1490.85, 1535.31, 1403.29, 1477.43)
+```
+- CLI version 8 without differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build --configuration=stable (at /home/circleci/project/project/aio)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 41084.00 ms (48170.00, 35040.00, 40270.00, 40970.00, 40970.00)
+[benchmark]   Average Process usage: 1.49 process(es) (3.45, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 2.60 process(es) (9.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 173.33 % (188.38, 173.52, 167.99, 167.72, 169.03)
+[benchmark]   Peak CPU usage: 571.56 % (866.67, 490.00, 511.11, 500.00, 490.00)
+[benchmark]   Average Memory usage: 676.58 MB (925.45, 626.83, 620.72, 615.95, 593.96)
+[benchmark]   Peak Memory usage: 1343.91 MB (1899.36, 1329.31, 1157.89, 1238.77, 1094.24)
+```
+- CLI version 7
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build --configuration=stable (at /home/circleci/project/project/aio)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 37114.00 ms (45870.00, 33450.00, 32450.00, 37350.00, 36450.00)
+[benchmark]   Average Process usage: 1.91 process(es) (5.56, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 3.60 process(es) (14.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 165.12 % (174.49, 163.10, 164.54, 161.02, 162.47)
+[benchmark]   Peak CPU usage: 528.00 % (690.00, 510.00, 470.00, 500.00, 470.00)
+[benchmark]   Average Memory usage: 634.71 MB (993.48, 538.10, 555.92, 533.22, 552.81)
+[benchmark]   Peak Memory usage: 1348.80 MB (2114.51, 1143.82, 1155.35, 1153.84, 1176.48)
+```
+</details>
+
