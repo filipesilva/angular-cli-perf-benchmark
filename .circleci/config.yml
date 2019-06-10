@@ -69,6 +69,16 @@ anchor_14: &spartacus
         command: ./benchmark-project.sh https://github.com/filipesilva/cloud-commerce-spartacus-storefront b55866d91 yarn "ng build storefrontapp --prod"
         no_output_timeout: 90m        
 
+# From https://github.com/vmware/clarity
+anchor_15: &clarity
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: 
+        command: ./benchmark-project.sh https://github.com/filipesilva/clarity 36766e0dd npm "node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod"
+        no_output_timeout: 90m
+
 version: 2
 jobs:
   noop:
@@ -116,6 +126,14 @@ jobs:
     <<: *node_12
     <<: *spartacus
 
+  clarity-node_10:
+    <<: *node_10
+    <<: *clarity
+
+  clarity-node_12:
+    <<: *node_12
+    <<: *clarity
+
 workflows:
   version: 2
   default_workflow:
@@ -131,3 +149,5 @@ workflows:
       # - aio-node_12
       # - spartacus-node_10
       # - spartacus-node_12
+      # - clarity-node_10
+      # - clarity-node_12

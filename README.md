@@ -57,7 +57,6 @@ After gathering new benchmark information, it can be recorded here and commented
 These results should be updated when either the setup or the project SHA change.
 
 Projects yet to add:
-- https://github.com/vmware/clarity
 - https://github.com/aviabird/angularspree (not yet updated to 8, and requires a lot of work to update)
 
 
@@ -512,5 +511,98 @@ From https://github.com/SAP/cloud-commerce-spartacus-storefront.
 [benchmark]   Peak CPU usage: 508.00 % (500.00, 510.00, 520.00, 510.00, 500.00)
 [benchmark]   Average Memory usage: 728.57 MB (989.48, 665.76, 663.48, 665.37, 658.76)
 [benchmark]   Peak Memory usage: 1331.97 MB (1835.56, 1179.63, 1197.85, 1219.21, 1227.60)
+```
+</details>
+
+
+### clarity
+
+From https://github.com/vmware/clarity.
+
+Note: the Node 12 benchmark had to be taken with `node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod` instead of `ng build website --prod`. Node 12 dynamically sets the heap size based on available memory, but in the CircleCI default machines (4GB ram) it had to be altered anyway.
+
+<details><summary>Node 12.4.0</summary>
+
+- CLI version 8 with differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 139718.00 ms (171930.00, 145820.00, 122880.00, 141100.00, 116860.00)
+[benchmark]   Average Process usage: 1.50 process(es) (3.47, 1.01, 1.01, 1.01, 1.00)
+[benchmark]   Peak Process usage: 9.20 process(es) (36.00, 3.00, 3.00, 3.00, 1.00)
+[benchmark]   Average CPU usage: 166.41 % (220.42, 148.94, 152.70, 150.35, 159.62)
+[benchmark]   Peak CPU usage: 1292.89 % (4000.00, 730.00, 544.44, 690.00, 500.00)
+[benchmark]   Average Memory usage: 2083.23 MB (2201.80, 2063.78, 2044.78, 2047.99, 2057.80)
+[benchmark]   Peak Memory usage: 3275.27 MB (5001.22, 2831.63, 2856.07, 2848.83, 2838.58)
+```
+- CLI version 8 without differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 130732.00 ms (133890.00, 144830.00, 123370.00, 116780.00, 134790.00)
+[benchmark]   Average Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 153.45 % (155.75, 148.63, 154.71, 156.33, 151.84)
+[benchmark]   Peak CPU usage: 514.67 % (511.11, 510.00, 510.00, 520.00, 522.22)
+[benchmark]   Average Memory usage: 2049.48 MB (2082.38, 2112.24, 1994.43, 2010.28, 2048.08)
+[benchmark]   Peak Memory usage: 2814.05 MB (2800.04, 2849.20, 2834.46, 2790.12, 2796.44)
+```
+- CLI version 7
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 147158.00 ms (201190.00, 139490.00, 135690.00, 133010.00, 126410.00)
+[benchmark]   Average Process usage: 1.18 process(es) (1.90, 1.01, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 8.40 process(es) (36.00, 3.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 156.38 % (170.09, 151.25, 151.50, 156.67, 152.41)
+[benchmark]   Peak CPU usage: 954.00 % (2500.00, 740.00, 520.00, 510.00, 500.00)
+[benchmark]   Average Memory usage: 1981.30 MB (2041.02, 1945.87, 2002.34, 1947.21, 1970.06)
+[benchmark]   Peak Memory usage: 3450.42 MB (6018.51, 2851.30, 2806.87, 2773.70, 2801.71)
+```
+</details>
+
+<details><summary>Node 10.16.0</summary>
+
+- CLI version 8 with differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build website --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 125102.00 ms (150050.00, 111270.00, 109290.00, 141540.00, 113360.00)
+[benchmark]   Average Process usage: 1.46 process(es) (3.26, 1.01, 1.01, 1.00, 1.01)
+[benchmark]   Peak Process usage: 9.60 process(es) (36.00, 3.00, 3.00, 3.00, 3.00)
+[benchmark]   Average CPU usage: 156.88 % (199.14, 145.67, 149.47, 142.19, 147.91)
+[benchmark]   Peak CPU usage: 1602.67 % (5300.00, 520.00, 733.33, 690.00, 770.00)
+[benchmark]   Average Memory usage: 1219.03 MB (1350.21, 1176.10, 1192.34, 1195.58, 1180.93)
+[benchmark]   Peak Memory usage: 2409.03 MB (4979.44, 1758.02, 1774.31, 1780.02, 1753.37)
+```
+- CLI version 8 without differential loading
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build website --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 127974.00 ms (122010.00, 131530.00, 139050.00, 132220.00, 115060.00)
+[benchmark]   Average Process usage: 1.00 process(es) (1.01, 1.00, 1.00, 1.00, 1.01)
+[benchmark]   Peak Process usage: 1.80 process(es) (3.00, 1.00, 1.00, 1.00, 3.00)
+[benchmark]   Average CPU usage: 143.07 % (144.83, 141.85, 137.62, 143.01, 148.05)
+[benchmark]   Peak CPU usage: 527.89 % (555.56, 541.67, 500.00, 522.22, 520.00)
+[benchmark]   Average Memory usage: 1186.58 MB (1166.30, 1209.10, 1210.66, 1162.62, 1184.25)
+[benchmark]   Peak Memory usage: 1707.74 MB (1588.17, 1799.86, 1613.46, 1756.46, 1780.75)
+```
+- CLI version 7
+```
+[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
+[benchmark]   ng build website --prod (at /home/circleci/project/project)
+[benchmark] Process Stats
+[benchmark]   Elapsed Time: 122160.00 ms (120890.00, 113270.00, 161590.00, 112800.00, 102250.00)
+[benchmark]   Average Process usage: 1.53 process(es) (3.67, 1.01, 1.00, 1.00, 1.00)
+[benchmark]   Peak Process usage: 8.40 process(es) (36.00, 3.00, 1.00, 1.00, 1.00)
+[benchmark]   Average CPU usage: 156.52 % (221.59, 144.47, 132.13, 140.85, 143.58)
+[benchmark]   Peak CPU usage: 1218.22 % (3700.00, 780.00, 544.44, 533.33, 533.33)
+[benchmark]   Average Memory usage: 1198.62 MB (1405.18, 1134.82, 1208.82, 1088.15, 1156.14)
+[benchmark]   Peak Memory usage: 2335.99 MB (4962.54, 1781.51, 1672.10, 1604.10, 1659.72)
 ```
 </details>
