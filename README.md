@@ -58,8 +58,8 @@ These results should be updated when either the setup or the project SHA change.
 
 Projects yet to add:
 - https://github.com/SAP/cloud-commerce-spartacus-storefront
-- https://github.com/aviabird/angularspree
 - https://github.com/vmware/clarity
+- https://github.com/aviabird/angularspree (not yet updated to 8, and requires a lot of work to update)
 
 
 ### cli-eight-project
