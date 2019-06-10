@@ -3,6 +3,7 @@ git_url=$1
 git_sha=$2
 package_manager=$3
 command="${4:-ng build --prod}"
+dir="${5:-.}"
 benchmark_command="benchmark -- $command"
 if [[ "$package_manager" == "npm" ]]; then
     install_package_command="npm install -D"
@@ -34,11 +35,12 @@ silent() {
   fi
 }
 
-echo -e "# Benchmarking $git_url at $git_sha using $package_manager, running \"$command\""
+echo -e "# Benchmarking $git_url at $git_sha using $package_manager, running \"$command\" in dir \"$dir\""
 
 silent "rm -rf project"
 silent "git clone $git_url project"
 silent "cd project"
+silent "cd $dir"
 silent "git checkout $git_sha"
 silent "$package_manager install"
 

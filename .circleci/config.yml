@@ -49,6 +49,16 @@ anchor_12: &awesome_angular_workshop
         command: ./benchmark-project.sh https://github.com/johnpapa/awesome-angular-workshop b7adca7 npm "ng build 5-ngrx-end --prod"
         no_output_timeout: 90m
 
+# From https://github.com/angular/angular/tree/master/aio
+anchor_13: &aio
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: 
+        command: ./benchmark-project.sh https://github.com/filipesilva/angular c6d7b7ebc yarn "ng build --configuration=stable" aio
+        no_output_timeout: 90m
+
 version: 2
 jobs:
   noop:
@@ -80,6 +90,14 @@ jobs:
     <<: *node_12
     <<: *awesome_angular_workshop
 
+  aio-node_10:
+    <<: *node_10
+    <<: *aio
+
+  aio-node_12:
+    <<: *node_12
+    <<: *aio
+
 workflows:
   version: 2
   default_workflow:
@@ -91,3 +109,5 @@ workflows:
       # - super_productivity-node_12
       # - awesome_angular_workshop-node_10
       # - awesome_angular_workshop-node_12
+      # - aio-node_10
+      # - aio-node_12
