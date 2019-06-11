@@ -54,6 +54,9 @@ This suite is run through node 10 and node 12.
 
 After gathering new benchmark information, it can be recorded here and commented out from the CircleCI job list. 
 
+It's important to note that the first build of the `CLI version 8 with differential loading` and `CLI version 7` variants will always use more cores and take more memory. 
+This happens because `terser-webpack-plugin` uses both parallel processes and a cache that is cleared on reinstalling the node modules. Cache hits don't spawn extra processes nor perform any work.
+
 These results should be updated when either the setup or the project SHA change.
 
 Projects yet to add:
@@ -333,7 +336,7 @@ From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
 </details>
 
 
-### aio
+### angular.io
 
 From https://github.com/angular/angular/tree/master/aio.
 
