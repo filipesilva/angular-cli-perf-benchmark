@@ -498,11 +498,13 @@ Note: this project wasn't using differential loading.
 
 From https://github.com/vmware/clarity.
 
+Note: this project wasn't using differential loading.
+
 Note: the Node 12 benchmark had to be taken with `node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod` instead of `ng build website --prod`. Node 12 dynamically sets the heap size based on available memory, but in the CircleCI default machines (4GB ram) it had to be altered anyway.
 
 <details><summary>Node 12.4.0</summary>
 
-- CLI version 8 with differential loading
+- CLI version 8 without differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod (at /home/circleci/project/project)
@@ -514,19 +516,6 @@ Note: the Node 12 benchmark had to be taken with `node --max_old_space_size=2400
 [benchmark]   Peak CPU usage: 1292.89 % (4000.00, 730.00, 544.44, 690.00, 500.00)
 [benchmark]   Average Memory usage: 2083.23 MB (2201.80, 2063.78, 2044.78, 2047.99, 2057.80)
 [benchmark]   Peak Memory usage: 3275.27 MB (5001.22, 2831.63, 2856.07, 2848.83, 2838.58)
-```
-- CLI version 8 without differential loading
-```
-[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
-[benchmark]   node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod (at /home/circleci/project/project)
-[benchmark] Process Stats
-[benchmark]   Elapsed Time: 130732.00 ms (133890.00, 144830.00, 123370.00, 116780.00, 134790.00)
-[benchmark]   Average Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
-[benchmark]   Peak Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
-[benchmark]   Average CPU usage: 153.45 % (155.75, 148.63, 154.71, 156.33, 151.84)
-[benchmark]   Peak CPU usage: 514.67 % (511.11, 510.00, 510.00, 520.00, 522.22)
-[benchmark]   Average Memory usage: 2049.48 MB (2082.38, 2112.24, 1994.43, 2010.28, 2048.08)
-[benchmark]   Peak Memory usage: 2814.05 MB (2800.04, 2849.20, 2834.46, 2790.12, 2796.44)
 ```
 - CLI version 7
 ```
@@ -545,7 +534,7 @@ Note: the Node 12 benchmark had to be taken with `node --max_old_space_size=2400
 
 <details><summary>Node 10.16.0</summary>
 
-- CLI version 8 with differential loading
+- CLI version 8 without differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build website --prod (at /home/circleci/project/project)
@@ -557,19 +546,6 @@ Note: the Node 12 benchmark had to be taken with `node --max_old_space_size=2400
 [benchmark]   Peak CPU usage: 1602.67 % (5300.00, 520.00, 733.33, 690.00, 770.00)
 [benchmark]   Average Memory usage: 1219.03 MB (1350.21, 1176.10, 1192.34, 1195.58, 1180.93)
 [benchmark]   Peak Memory usage: 2409.03 MB (4979.44, 1758.02, 1774.31, 1780.02, 1753.37)
-```
-- CLI version 8 without differential loading
-```
-[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
-[benchmark]   ng build website --prod (at /home/circleci/project/project)
-[benchmark] Process Stats
-[benchmark]   Elapsed Time: 127974.00 ms (122010.00, 131530.00, 139050.00, 132220.00, 115060.00)
-[benchmark]   Average Process usage: 1.00 process(es) (1.01, 1.00, 1.00, 1.00, 1.01)
-[benchmark]   Peak Process usage: 1.80 process(es) (3.00, 1.00, 1.00, 1.00, 3.00)
-[benchmark]   Average CPU usage: 143.07 % (144.83, 141.85, 137.62, 143.01, 148.05)
-[benchmark]   Peak CPU usage: 527.89 % (555.56, 541.67, 500.00, 522.22, 520.00)
-[benchmark]   Average Memory usage: 1186.58 MB (1166.30, 1209.10, 1210.66, 1162.62, 1184.25)
-[benchmark]   Peak Memory usage: 1707.74 MB (1588.17, 1799.86, 1613.46, 1756.46, 1780.75)
 ```
 - CLI version 7
 ```
