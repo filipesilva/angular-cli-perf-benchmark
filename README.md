@@ -431,9 +431,11 @@ From https://github.com/angular/angular/tree/master/aio.
 
 From https://github.com/SAP/cloud-commerce-spartacus-storefront.
 
+Note: this project wasn't using differential loading.
+
 <details><summary>Node 12.4.0</summary>
 
-- CLI version 8 with differential loading
+- CLI version 8 without differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
@@ -445,19 +447,6 @@ From https://github.com/SAP/cloud-commerce-spartacus-storefront.
 [benchmark]   Peak CPU usage: 552.89 % (677.78, 522.22, 490.00, 544.44, 530.00)
 [benchmark]   Average Memory usage: 1233.30 MB (1405.09, 1153.82, 1180.65, 1163.84, 1263.11)
 [benchmark]   Peak Memory usage: 2083.64 MB (2326.98, 1727.42, 2167.06, 2136.04, 2060.71)
-```
-- CLI version 8 without differential loading
-```
-[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
-[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
-[benchmark] Process Stats
-[benchmark]   Elapsed Time: 98380.00 ms (102170.00, 103090.00, 91540.00, 93120.00, 101980.00)
-[benchmark]   Average Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
-[benchmark]   Peak Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
-[benchmark]   Average CPU usage: 151.47 % (149.79, 149.61, 155.14, 153.38, 149.41)
-[benchmark]   Peak CPU usage: 502.00 % (500.00, 500.00, 500.00, 510.00, 500.00)
-[benchmark]   Average Memory usage: 1182.45 MB (1131.15, 1205.28, 1192.45, 1247.90, 1135.47)
-[benchmark]   Peak Memory usage: 1957.15 MB (1722.85, 2130.38, 2133.10, 2055.44, 1743.97)
 ```
 - CLI version 7
 ```
@@ -476,7 +465,7 @@ From https://github.com/SAP/cloud-commerce-spartacus-storefront.
 
 <details><summary>Node 10.16.0</summary>
 
-- CLI version 8 with differential loading
+- CLI version 8 without differential loading
 ```
 [benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
 [benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
@@ -488,19 +477,6 @@ From https://github.com/SAP/cloud-commerce-spartacus-storefront.
 [benchmark]   Peak CPU usage: 536.22 % (640.00, 510.00, 520.00, 511.11, 500.00)
 [benchmark]   Average Memory usage: 1013.15 MB (1275.80, 924.72, 957.92, 983.69, 923.61)
 [benchmark]   Peak Memory usage: 1855.15 MB (2291.60, 1706.21, 1791.59, 1724.58, 1761.78)
-```
-- CLI version 8 without differential loading
-```
-[benchmark] Benchmarking process over 5 iterations, with up to 5 retries.
-[benchmark]   ng build storefrontapp --prod (at /home/circleci/project/project)
-[benchmark] Process Stats
-[benchmark]   Elapsed Time: 78998.00 ms (76830.00, 79500.00, 79220.00, 77420.00, 82020.00)
-[benchmark]   Average Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
-[benchmark]   Peak Process usage: 1.00 process(es) (1.00, 1.00, 1.00, 1.00, 1.00)
-[benchmark]   Average CPU usage: 156.11 % (155.55, 156.26, 155.25, 156.26, 157.24)
-[benchmark]   Peak CPU usage: 510.44 % (500.00, 510.00, 510.00, 510.00, 522.22)
-[benchmark]   Average Memory usage: 953.50 MB (940.89, 951.00, 946.14, 950.71, 978.76)
-[benchmark]   Peak Memory usage: 1711.09 MB (1709.29, 1723.58, 1737.01, 1671.56, 1714.02)
 ```
 - CLI version 7
 ```
