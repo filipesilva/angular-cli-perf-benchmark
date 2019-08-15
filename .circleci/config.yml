@@ -5,7 +5,7 @@ anchor_1: &node_10
 
 anchor_2: &node_12
   docker:
-    - image: circleci/node:12
+    - image: circleci/node:12.8
 
 anchor_3: &environment
   environment:
