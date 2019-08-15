@@ -63,7 +63,7 @@ sed -i s/\"target\"\:\ \"es2015\"/\"target\"\:\ \"es5\"/g tsconfig.json
 $benchmark_command
 
 echo -e "\n# Install CLI 7\n"
-silent "$install_cli_8"
+silent "$install_cli_7"
 npm run ng version
 
 echo -e "\n# Benchmark CLI version 7\n"
