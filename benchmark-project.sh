@@ -6,10 +6,10 @@ command="${4:-ng build --prod}"
 dir="${5:-.}"
 benchmark_command="benchmark -- $command"
 if [[ "$package_manager" == "npm" ]]; then
-    install_dev_package_command="npm install"
+    install_package_command="npm install"
 fi
 if [[ "$package_manager" == "yarn" ]]; then
-    install_dev_package_command="yarn add"
+    install_package_command="yarn add"
 fi
 install_fw="$install_package_command -S @angular/{animations,common,core,elements,forms,platform-browser,platform-browser-dynamic,router,service-worker}@8.2.2"
 install_fw_dev="$install_package_command -D @angular/{compiler,compiler-cli,language-service}@8.2.2 typescript@3.5.3"
@@ -47,7 +47,7 @@ silent "git checkout $git_sha"
 silent "$package_manager install"
 
 echo -e "\n# Install FW 8\n"
-silent "$install_package_command"
+silent "$install_fw"
 silent "$install_fw_dev"
 
 echo -e "\n# CLI version 8 with differential loading\n"
