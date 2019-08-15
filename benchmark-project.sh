@@ -50,15 +50,21 @@ echo -e "\n# Install FW 8\n"
 silent "$install_fw"
 silent "$install_fw_dev"
 
-echo -e "\n# CLI version 8 with differential loading\n"
+echo -e "\n# Install CLI 8\n"
 silent "$install_cli_8"
+npm run ng version
+
+echo -e "\n# Benchmark CLI version 8 with differential loading\n"
 $benchmark_command
 
-echo -e "\n# CLI version 8 without differential loading\n"
+echo -e "\n# Benchmark CLI version 8 without differential loading\n"
 # Didn't set this one as silent because it's already silent and double escaping is hell.
 sed -i s/\"target\"\:\ \"es2015\"/\"target\"\:\ \"es5\"/g tsconfig.json
 $benchmark_command
 
-echo -e "\n# CLI version 7\n"
-silent "$install_cli_7"
+echo -e "\n# Install CLI 7\n"
+silent "$install_cli_8"
+npm run ng version
+
+echo -e "\n# Benchmark CLI version 7\n"
 $benchmark_command
