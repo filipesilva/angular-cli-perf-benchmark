@@ -17,7 +17,7 @@ install_cli_7="$install_package_command -D @angular/cli@7.3.9 @angular-devkit/bu
 install_cli_8="$install_package_command -D @angular/cli@8.3.0-rc.0 @angular-devkit/build-angular@0.803.0-rc.0 node-sass"
 
 # Set to true to debug.
-DEBUG=false
+DEBUG=true
 
 if $DEBUG; then
     # Show all commands ran.
