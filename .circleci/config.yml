@@ -1,11 +1,11 @@
 # General setup
 anchor_1: &node_10
   docker:
-    - image: circleci/node:10
+    - image: circleci/node:10.16
 
 anchor_2: &node_12
   docker:
-    - image: circleci/node:12.8
+    - image: circleci/node:12.4
 
 anchor_3: &environment
   environment:
