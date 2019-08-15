@@ -6,13 +6,15 @@ command="${4:-ng build --prod}"
 dir="${5:-.}"
 benchmark_command="benchmark -- $command"
 if [[ "$package_manager" == "npm" ]]; then
-    install_package_command="npm install -D"
+    install_dev_package_command="npm install"
 fi
 if [[ "$package_manager" == "yarn" ]]; then
-    install_package_command="yarn add -D"
+    install_dev_package_command="yarn add"
 fi
-install_cli_7="$install_package_command @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.9"
-install_cli_8="$install_package_command @angular/cli@8.0.2 @angular-devkit/build-angular@0.800.2"
+install_fw="$install_package_command -S @angular/{animations,common,core,elements,forms,platform-browser,platform-browser-dynamic,router,service-worker}@8.2.2"
+install_fw_dev="$install_package_command -D @angular/{compiler,compiler-cli,language-service}@8.2.2"
+install_cli_7="$install_package_command -D @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.9"
+install_cli_8="$install_package_command -D @angular/cli@8.0.2 @angular-devkit/build-angular@0.800.2"
 
 # Set to true to debug.
 DEBUG=false
@@ -44,12 +46,16 @@ silent "cd $dir"
 silent "git checkout $git_sha"
 silent "$package_manager install"
 
+echo -e "\n# Install FW 8\n"
+silent "$install_package_command"
+silent "$install_fw_dev"
+
 echo -e "\n# CLI version 8 with differential loading\n"
 silent "$install_cli_8"
 $benchmark_command
 
 echo -e "\n# CLI version 8 without differential loading\n"
-# Didn't set this one as silent because it's already silend and double escaping is hell.
+# Didn't set this one as silent because it's already silent and double escaping is hell.
 sed -i s/\"target\"\:\ \"es2015\"/\"target\"\:\ \"es5\"/g tsconfig.json
 $benchmark_command
 
