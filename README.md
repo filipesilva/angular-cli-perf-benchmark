@@ -13,15 +13,10 @@ We have a private [benchmarking package](https://github.com/angular/angular-cli/
 
 A build is included here as `angular-devkit-benchmark-<some-version>.tgz` but you can also build it from source.
 
-To install it, clone the CLI repo, then run follow these commands:
+To install the provided version, run follow this command:
 ```
-yarn
-yarn build
-npm pack dist/@angular-devkit/benchmark
 npm install -g angular-devkit-benchmark-0.800.0-beta.18.tgz
 ```
-
-The filename on the last command might change, depending on the version of the CLI you clone.
 
 To use it, run `benchmark -- command`. The command will depend on the project you use. To benchmark a prod build, do `benchmark -- ng build --prod`.
 
