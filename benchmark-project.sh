@@ -12,9 +12,9 @@ if [[ "$package_manager" == "yarn" ]]; then
     install_dev_package_command="yarn add"
 fi
 install_fw="$install_package_command -S @angular/{animations,common,core,elements,forms,platform-browser,platform-browser-dynamic,router,service-worker}@8.2.2"
-install_fw_dev="$install_package_command -D @angular/{compiler,compiler-cli,language-service}@8.2.2"
+install_fw_dev="$install_package_command -D @angular/{compiler,compiler-cli,language-service}@8.2.2 typescript@3.5.3"
 install_cli_7="$install_package_command -D @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.9"
-install_cli_8="$install_package_command -D @angular/cli@8.0.2 @angular-devkit/build-angular@0.800.2"
+install_cli_8="$install_package_command -D @angular/cli@8.3.0-rc.0 @angular-devkit/build-angular@0.803.0-rc.0 node-sass"
 
 # Set to true to debug.
 DEBUG=false
