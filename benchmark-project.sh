@@ -14,7 +14,7 @@ fi
 install_fw="$install_package_command -S @angular/animations@8.2.2 @angular/common@8.2.2 @angular/core@8.2.2 @angular/elements@8.2.2 @angular/forms@8.2.2 @angular/platform-browser@8.2.2 @angular/platform-browser-dynamic@8.2.2 @angular/router@8.2.2 @angular/service-worker@8.2.2"
 install_fw_dev="$install_package_command -D @angular/compiler@8.2.2 @angular/compiler-cli@8.2.2 @angular/language-service@8.2.2 typescript@3.5.3"
 install_cli_7="$install_package_command -D @angular/cli@7.3.9 @angular-devkit/build-angular@0.13.9"
-install_cli_8="$install_package_command -D @angular/cli@8.3.0-rc.0 @angular-devkit/build-angular@0.803.0-rc.0 node-sass@4.12.0"
+install_cli_8="$install_package_command -D @angular/cli@8.3.0-rc.0 @angular-devkit/build-angular@0.803.0-rc.0"
 
 # Set to true to debug.
 DEBUG=false

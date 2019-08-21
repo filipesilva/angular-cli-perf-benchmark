@@ -31,7 +31,7 @@ For instance, to benchmark a new project, run `./benchmark-project.sh https://gi
 
 To get the base version first update a project to version 8 following https://update.angular.io/. Thats the base variant and should be in the pulled repository SHA.
 
-The "CLI version 8 with differential loading" is obtained by installing `@angular-devkit/build-angular@0.803.0-rc.0`, `@angular/cli@8.3.0-rc.0` and `node-sass@4.12.0` and then running the benchmark.
+The "CLI version 8 with differential loading" is obtained by installing `@angular-devkit/build-angular@0.803.0-rc.0` and `@angular/cli@8.3.0-rc.0` and then running the benchmark.
 
 Replacing `target` in `./tsconfig.json` from `es2015` to `es5` makes the "CLI version 8 without differential loading" variant.
 
