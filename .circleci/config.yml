@@ -26,7 +26,7 @@ anchor_11: &super_productivity
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/super-productivity/tree/v9-testing 46a6d70 yarn "node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build --prod"
+        command: ./benchmark-project.sh https://github.com/alan-agius4/super-productivity v9-testing yarn "node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build --prod"
         no_output_timeout: 90m
 
 # From https://github.com/kubernetes/dashboard
@@ -36,7 +36,7 @@ anchor_12: &kubernetes_dashboard
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/dashboard/tree/v9-testing d1e4331 npm
+        command: ./benchmark-project.sh https://github.com/alan-agius4/dashboard v9-testing npm
         no_output_timeout: 90m
 
 # From https://github.com/angular/angular/tree/master/aio
@@ -46,7 +46,7 @@ anchor_13: &aio
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/angular/tree/v9-testing b80dc43 yarn "ng build --configuration=stable" aio
+        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=stable" aio
         no_output_timeout: 90m
 
 version: 2
