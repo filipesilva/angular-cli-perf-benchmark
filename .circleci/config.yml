@@ -19,34 +19,24 @@ anchor_4: &setup
 
 # Projects
 
-# New project created by `ng new`
-anchor_10: &new_project
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/filipesilva/cli-eight-project 02cfbec npm
-        no_output_timeout: 90m
-
-# From https://github.com/johannesjo/super-productivity    
+# From https://github.com/johannesjo/super-productivity
 anchor_11: &super_productivity
   <<: *environment
   steps:
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/filipesilva/super-productivity e6501816 yarn
+        command: ./benchmark-project.sh https://github.com/alan-agius4/super-productivity/tree/v9-testing 46a6d70 yarn "node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build --prod"
         no_output_timeout: 90m
 
-# From https://github.com/johnpapa/awesome-angular-workshop/tree/v8
-anchor_12: &awesome_angular_workshop
+# From https://github.com/kubernetes/dashboard
+anchor_12: &kubernetes_dashboard
   <<: *environment
   steps:
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/filipesilva/awesome-angular-workshop 9076a3d npm "ng build 5-ngrx-end --prod"
+        command: ./benchmark-project.sh https://github.com/alan-agius4/dashboard/tree/v9-testing d1e4331 npm
         no_output_timeout: 90m
 
 # From https://github.com/angular/angular/tree/master/aio
@@ -56,27 +46,7 @@ anchor_13: &aio
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/filipesilva/angular c6d7b7ebc yarn "ng build --configuration=stable" aio
-        no_output_timeout: 90m
-
-# From https://github.com/SAP/cloud-commerce-spartacus-storefront
-anchor_14: &spartacus
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/filipesilva/cloud-commerce-spartacus-storefront b55866d91 yarn "ng build storefrontapp --prod"
-        no_output_timeout: 90m        
-
-# From https://github.com/vmware/clarity
-anchor_15: &clarity
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/filipesilva/clarity 36766e0dd npm "node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build website --prod"
+        command: ./benchmark-project.sh https://github.com/alan-agius4/angular/tree/v9-testing b80dc43 yarn "ng build --configuration=stable" aio
         no_output_timeout: 90m
 
 version: 2
@@ -86,14 +56,6 @@ jobs:
     steps:
       - run: echo dummy job, just here so circleci is green when no other job is running.
 
-  new_project-node_10:
-    <<: *node_10
-    <<: *new_project
-
-  new_project-node_12:
-    <<: *node_12
-    <<: *new_project
-
   super_productivity-node_10:
     <<: *node_10
     <<: *super_productivity
@@ -102,13 +64,13 @@ jobs:
     <<: *node_12
     <<: *super_productivity
 
-  awesome_angular_workshop-node_10:
+  kubernetes_dashboard-node_10:
     <<: *node_10
-    <<: *awesome_angular_workshop
+    <<: *kubernetes_dashboard
 
-  awesome_angular_workshop-node_12:
+  kubernetes_dashboard-node_12:
     <<: *node_12
-    <<: *awesome_angular_workshop
+    <<: *kubernetes_dashboard
 
   aio-node_10:
     <<: *node_10
@@ -117,37 +79,15 @@ jobs:
   aio-node_12:
     <<: *node_12
     <<: *aio
-    
-  spartacus-node_10:
-    <<: *node_10
-    <<: *spartacus
-
-  spartacus-node_12:
-    <<: *node_12
-    <<: *spartacus
-
-  clarity-node_10:
-    <<: *node_10
-    <<: *clarity
-
-  clarity-node_12:
-    <<: *node_12
-    <<: *clarity
 
 workflows:
   version: 2
   default_workflow:
     jobs:
-      - noop
-      # - new_project-node_10
-      # - new_project-node_12
-      # - super_productivity-node_10
-      # - super_productivity-node_12
-      # - awesome_angular_workshop-node_10
-      # - awesome_angular_workshop-node_12
-      # - aio-node_10
-      # - aio-node_12
-      # - spartacus-node_10
-      # - spartacus-node_12
-      # - clarity-node_10
-      # - clarity-node_12
+      # - noop
+      - super_productivity-node_10
+      - super_productivity-node_12
+      - kubernetes_dashboard-node_10
+      - kubernetes_dashboard-node_12
+      - aio-node_10
+      - aio-node_12
