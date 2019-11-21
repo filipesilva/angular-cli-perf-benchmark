@@ -16,7 +16,7 @@ install_fw_dev="$install_package_command -D @angular/compiler@9.0.0-rc.3 @angula
 install_cli_8="$install_package_command -D @angular/cli@9.0.0-rc.3 @angular-devkit/build-angular@0.900.0-rc.3"
 
 # Set to true to debug.
-DEBUG=true
+DEBUG=false
 
 if $DEBUG; then
     # Show all commands ran.

@@ -5,7 +5,7 @@ anchor_1: &node_10
 
 anchor_2: &node_12
   docker:
-    - image: circleci/node:12.4
+    - image: circleci/node:12.10
 
 anchor_3: &environment
   environment:
@@ -36,7 +36,7 @@ anchor_12: &kubernetes_dashboard
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/dashboard v9-testing npm
+        command: ./benchmark-project.sh https://github.com/alan-agius4/dashboard c4230db09079af1567a1d327e8571aac920ab84f npm
         no_output_timeout: 90m
 
 # From https://github.com/angular/angular/tree/master/aio
@@ -85,9 +85,9 @@ workflows:
   default_workflow:
     jobs:
       # - noop
-      #- super_productivity-node_10
-      #- super_productivity-node_12
+      - super_productivity-node_10
+      - super_productivity-node_12
       - kubernetes_dashboard-node_10
-      # - kubernetes_dashboard-node_12
-      #- aio-node_10
-      #- aio-node_12
+      - kubernetes_dashboard-node_12
+      - aio-node_10
+      - aio-node_12
