@@ -85,9 +85,9 @@ workflows:
   default_workflow:
     jobs:
       # - noop
-      - super_productivity-node_10
-      - super_productivity-node_12
+      #- super_productivity-node_10
+      #- super_productivity-node_12
       # - kubernetes_dashboard-node_10
-      # - kubernetes_dashboard-node_12
-      - aio-node_10
-      - aio-node_12
+      - kubernetes_dashboard-node_12
+      #- aio-node_10
+      #- aio-node_12
