@@ -11,9 +11,9 @@ fi
 if [[ "$package_manager" == "yarn" ]]; then
     install_package_command="yarn add"
 fi
-install_fw="$install_package_command -S @angular/animations@9.0.0-rc.2 @angular/common@9.0.0-rc.2 @angular/core@9.0.0-rc.2 @angular/elements@9.0.0-rc.2 @angular/forms@9.0.0-rc.2 @angular/platform-browser@9.0.0-rc.2 @angular/platform-browser-dynamic@9.0.0-rc.2 @angular/router@9.0.0-rc.2 @angular/service-worker@9.0.0-rc.2"
-install_fw_dev="$install_package_command -D @angular/compiler@9.0.0-rc.2 @angular/compiler-cli@9.0.0-rc.2 @angular/language-service@9.0.0-rc.2 typescript@3.6.4"
-install_cli_8="$install_package_command -D @angular/cli@9.0.0-rc.2 @angular-devkit/build-angular@0.900.0-rc.2"
+install_fw="$install_package_command -S @angular/animations@9.0.0-rc.3 @angular/common@9.0.0-rc.3 @angular/core@9.0.0-rc.3 @angular/elements@9.0.0-rc.3 @angular/forms@9.0.0-rc.3 @angular/platform-browser@9.0.0-rc.3 @angular/platform-browser-dynamic@9.0.0-rc.3 @angular/router@9.0.0-rc.3 @angular/service-worker@9.0.0-rc.3"
+install_fw_dev="$install_package_command -D @angular/compiler@9.0.0-rc.3 @angular/compiler-cli@9.0.0-rc.3 @angular/language-service@9.0.0-rc.3 typescript@3.6.4"
+install_cli_8="$install_package_command -D @angular/cli@9.0.0-rc.3 @angular-devkit/build-angular@0.900.0-rc.3"
 
 # Set to true to debug.
 DEBUG=false
