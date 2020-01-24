@@ -4,7 +4,7 @@ git_sha=$2
 package_manager=$3
 command="${4:-ng build --prod}"
 dir="${5:-.}"
-benchmark_command="benchmark --watch-timeout=250000 --watch-matcher=\"Compiled successfully\" --watch-script watch_script.js -- $command"
+benchmark_command="benchmark --watch-timeout=250000 --watch-matcher=\"Compiled successfully\" --watch-script /home/circleci/project/project/watch_script.js -- $command"
 if [[ "$package_manager" == "npm" ]]; then
     install_package_command="npm install"
 fi
@@ -16,13 +16,13 @@ install_fw_dev="$install_package_command -D @angular/compiler@9.0.0-rc.10 @angul
 install_cli="$install_package_command -D @angular/cli@9.0.0-rc.10 @angular-devkit/build-angular@0.900.0-rc.10"
 
 # Set to true to debug.
-DEBUG=false
+DEBUG=true
 
 if $DEBUG; then
     # Show all commands ran.
     set -o xtrace
     # Don't do benchmark, just do the command instead.
-    benchmark_command="$command"
+    # benchmark_command="$command"
 fi
 
 silent() {
