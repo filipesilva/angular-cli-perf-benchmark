@@ -55,7 +55,7 @@ anchor_14: &rebuild
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "ng serve --source-map"
+        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build --watch --source-map"
         no_output_timeout: 90m
 
 anchor_15: &rebuild_no_sm
@@ -64,7 +64,7 @@ anchor_15: &rebuild_no_sm
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "ng serve --no-source-map"
+        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build --watch --no-source-map"
         no_output_timeout: 90m
 
 version: 2
