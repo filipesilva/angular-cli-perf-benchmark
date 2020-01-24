@@ -46,7 +46,7 @@ anchor_13: &aio
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --source-map --watch" aio
+        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --source-map --watch --progress" aio
         no_output_timeout: 90m
 
 anchor_13_s: &aio_no_sm
@@ -55,7 +55,7 @@ anchor_13_s: &aio_no_sm
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --no-source-map --watch" aio
+        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --no-source-map --watch --progress" aio
         no_output_timeout: 90m
 
 anchor_14: &rebuild
@@ -120,7 +120,7 @@ workflows:
   default_workflow:
     jobs:
       - aio_no_sm
-      - aio_sm
+      #- aio_sm
       # - noop
       # - super_productivity-node_10
       # - super_productivity-node_12
