@@ -4,7 +4,7 @@ git_sha=$2
 package_manager=$3
 command="${4:-ng build --prod}"
 dir="${5:-.}"
-benchmark_command="benchmark --watch-timeout=250000 --watch-matcher=Compiled --watch-script watch_script.js -- $command"
+benchmark_command="benchmark --verbose --watch-timeout=250000 --watch-matcher=Compiled --watch-script watch_script.js -- $command"
 if [[ "$package_manager" == "npm" ]]; then
     install_package_command="npm install"
 fi
