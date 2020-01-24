@@ -49,6 +49,24 @@ anchor_13: &aio
         command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=stable" aio
         no_output_timeout: 90m
 
+anchor_14: &rebuild
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: 
+        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "ng serve --source-map"
+        no_output_timeout: 90m
+
+anchor_15: &rebuild_no_sm
+  <<: *environment
+  steps:
+    - checkout
+    - *setup
+    - run: 
+        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "ng serve --no-source-map"
+        no_output_timeout: 90m
+
 version: 2
 jobs:
   noop:
@@ -80,14 +98,24 @@ jobs:
     <<: *node_12
     <<: *aio
 
+  rebuild_node_12:
+    <<: *node_12
+    <<: *rebuild
+
+  rebuild_no_sm_node_12:
+    <<: *node_12
+    <<: *rebuild_no_sm
+
 workflows:
   version: 2
   default_workflow:
     jobs:
+      - rebuild_no_sm_node_12
+      - rebuild_node_12
       # - noop
-      - super_productivity-node_10
-      - super_productivity-node_12
-      - kubernetes_dashboard-node_10
-      - kubernetes_dashboard-node_12
-      - aio-node_10
-      - aio-node_12
+      # - super_productivity-node_10
+      # - super_productivity-node_12
+      # - kubernetes_dashboard-node_10
+      # - kubernetes_dashboard-node_12
+      # - aio-node_10
+      # - aio-node_12
