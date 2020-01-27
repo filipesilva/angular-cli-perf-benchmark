@@ -41,7 +41,7 @@ echo -e "# Benchmarking $git_url at $git_sha using $package_manager, running \"$
 silent "rm -rf project"
 silent "git clone $git_url project"
 silent "cd project"
-silent "cp ../watch_script.js watch_script.js"
+silent "cp ../watch_script.js aio/watch_script.js"
 silent "cd $dir"
 silent "git checkout $git_sha"
 silent "$package_manager install"
