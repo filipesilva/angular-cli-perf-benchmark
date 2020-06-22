@@ -19,112 +19,24 @@ anchor_4: &setup
 
 # Projects
 
-# From https://github.com/johannesjo/super-productivity
-anchor_11: &super_productivity
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/super-productivity v9-testing yarn "node --max_old_space_size=2400 ./node_modules/@angular/cli/bin/ng build --prod"
-        no_output_timeout: 90m
-
-# From https://github.com/kubernetes/dashboard
-anchor_12: &kubernetes_dashboard
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/dashboard c4230db09079af1567a1d327e8571aac920ab84f npm
-        no_output_timeout: 90m
-
 # From https://github.com/angular/angular/tree/master/aio
-anchor_13: &aio
+anchor_13_s: &aio
   <<: *environment
   steps:
     - checkout
     - *setup
     - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --source-map --watch --progress" aio
-        no_output_timeout: 90m
-
-anchor_13_s: &aio_no_sm
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --no-source-map --watch --progress" aio
-        no_output_timeout: 90m
-
-anchor_14: &rebuild
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build --watch --source-map"
-        no_output_timeout: 90m
-
-anchor_15: &rebuild_no_sm
-  <<: *environment
-  steps:
-    - checkout
-    - *setup
-    - run: 
-        command: ./benchmark-project.sh https://github.com/elvisbegovic/ng-speed-rebuild 524f3c14fa999a9e55a5aee6ee81f4621ad477a3 npm "node --max-old-space-size=8192 ./node_modules/@angular/cli/bin/ng build --watch --no-source-map"
+        command: ./benchmark-project.sh https://github.com/alan-agius4/angular v9-testing yarn "ng build --configuration=fast --aot --source-map --watch --progress" aio
         no_output_timeout: 90m
 
 version: 2
 jobs:
-  noop:
-    <<: *node_10
-    steps:
-      - run: echo dummy job, just here so circleci is green when no other job is running.
-
-  super_productivity-node_10:
-    <<: *node_10
-    <<: *super_productivity
-
-  super_productivity-node_12:
-    <<: *node_12
-    <<: *super_productivity
-
-  kubernetes_dashboard-node_10:
-    <<: *node_10
-    <<: *kubernetes_dashboard
-
-  kubernetes_dashboard-node_12:
-    <<: *node_12
-    <<: *kubernetes_dashboard
-
-  aio_no_sm:
-    <<: *node_12
-    <<: *aio_no_sm
-
-  aio_sm:
+  aio:
     <<: *node_12
     <<: *aio
-
-  rebuild_node_12:
-    <<: *node_12
-    <<: *rebuild
-
-  rebuild_no_sm_node_12:
-    <<: *node_12
-    <<: *rebuild_no_sm
 
 workflows:
   version: 2
   default_workflow:
     jobs:
-      - aio_no_sm
-      #- aio_sm
-      # - noop
-      # - super_productivity-node_10
-      # - super_productivity-node_12
-      # - kubernetes_dashboard-node_10
-      # - kubernetes_dashboard-node_12
-      # - aio-node_10
-      # - aio-node_12
+      - aio
